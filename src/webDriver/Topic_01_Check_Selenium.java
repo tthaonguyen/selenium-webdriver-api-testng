@@ -10,6 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+//Lesson: set up environment
+
 public class Topic_01_Check_Selenium {
 	WebDriver driver;
 	

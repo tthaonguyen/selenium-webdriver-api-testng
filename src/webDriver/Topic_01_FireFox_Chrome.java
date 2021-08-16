@@ -5,7 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
-public class Topic_02_FireFox_Chrome {
+//Lesson: set up environment
+
+public class Topic_01_FireFox_Chrome {
 	WebDriver driver;
 
 	@Test
