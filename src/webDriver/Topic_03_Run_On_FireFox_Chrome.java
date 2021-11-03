@@ -7,12 +7,17 @@ import org.testng.annotations.Test;
 
 //Lesson: set up environment
 
-public class Topic_01_FireFox_Chrome {
+public class Topic_03_Run_On_FireFox_Chrome {
 	WebDriver driver;
+	String project_location = System.getProperty("user.dir");
 
 	@Test
 	public void TC_01_RunOnChrome() {
-		System.setProperty("webdriver.chrome.driver", ".\\browserDriver\\chromedriver.exe");
+		//relative path
+		//Sol 1:
+		//System.setProperty("webdriver.chrome.driver", ".\\browserDriver\\chromedriver.exe");
+		//Sol 2:
+		System.setProperty("webdriver.chrome.driver", project_location + "\\browserDriver\\chromedriver.exe");
 
 		driver = new ChromeDriver();
 
