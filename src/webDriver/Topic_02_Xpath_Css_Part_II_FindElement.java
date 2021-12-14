@@ -32,6 +32,7 @@ public class Topic_02_Xpath_Css_Part_II_FindElement {
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  driver.manage().window().maximize();
 	  driver.get("http://live.techpanda.org/");
+
 	  
 	  emailAddress = "thaonguyentong" + rng.nextInt(999999) + "@automation.vn";
 	  password  = "123456";
@@ -128,7 +129,7 @@ public class Topic_02_Xpath_Css_Part_II_FindElement {
 	  
 	  //Verify: navigate to Home page, after logout success
 	  Assert.assertTrue(driver.findElement(By.cssSelector("img[src $='logo.png']")).isDisplayed());
-	  
+
   }
   
   @Test

@@ -13,8 +13,10 @@ public class Topic_03_Run_On_FireFox_Chrome {
 
 	@Test
 	public void TC_01_RunOnChrome() {
+
 		//absolute path
 		//System.setProperty("E:\Selenium Course\02 - Selenium API\browserDriver\chromedriver.exe");
+
 		//relative path
 		//Sol 1:
 		//System.setProperty("webdriver.chrome.driver", ".\\browserDriver\\chromedriver.exe");
