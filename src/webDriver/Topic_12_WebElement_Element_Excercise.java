@@ -37,7 +37,7 @@ public class Topic_12_WebElement_Element_Excercise {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
-/*
+
 	@Test
 	public void TC01_Element_isDisplayed() throws InterruptedException {
 		System.out.println("TEST CASE 01");
@@ -118,7 +118,7 @@ public class Topic_12_WebElement_Element_Excercise {
 		Assert.assertTrue(isElementSelected(ageUnder18Radio));
 		Assert.assertFalse(isElementSelected(javaLanguageCheckbox));
 	}
-*/
+
 	@Test
 	public void TC04_Element_IntegrateAllAbove() throws InterruptedException {
 		System.out.println("\n TEST CASE 04: ");
