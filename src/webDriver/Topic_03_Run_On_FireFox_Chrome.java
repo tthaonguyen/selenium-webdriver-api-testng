@@ -13,6 +13,8 @@ public class Topic_03_Run_On_FireFox_Chrome {
 
 	@Test
 	public void TC_01_RunOnChrome() {
+		//absolute path
+		//System.setProperty("E:\Selenium Course\02 - Selenium API\browserDriver\chromedriver.exe");
 		//relative path
 		//Sol 1:
 		//System.setProperty("webdriver.chrome.driver", ".\\browserDriver\\chromedriver.exe");
@@ -28,6 +30,9 @@ public class Topic_03_Run_On_FireFox_Chrome {
 
 	@Test
 	public void TC_01_RunOnFirefox() {
+		//selenium 2.5.0
+		//Firefox version: 47.0
+		//no need gecko driver
 		driver = new FirefoxDriver();
 
 		driver.get("http://demo.guru99.com/v4/");
