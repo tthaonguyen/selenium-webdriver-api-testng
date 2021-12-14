@@ -177,7 +177,7 @@ public class Topic_12_WebElement_Element_Excercise {
 		// valid password
 		driver.findElement(By.id("new_password")).clear();
 		driver.findElement(By.id("new_password")).sendKeys("auto1Auto*");
-		Thread.sleep(1500);
+		Thread.sleep(1000);
 		Assert.assertTrue(isElementEnable(By.id("create-account")));
 		Assert.assertTrue(isElementDisplayed(By.xpath("//div[@class='c-mediaBody--centered']/h4")));
 
