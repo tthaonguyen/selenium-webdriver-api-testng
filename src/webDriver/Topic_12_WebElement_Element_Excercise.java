@@ -136,8 +136,7 @@ public class Topic_12_WebElement_Element_Excercise {
 		driver.findElement(By.id("new_password")).clear();
 		driver.findElement(By.id("new_password")).sendKeys("auto");
 		Assert.assertFalse(isElementEnable(By.id("create-account")));
-		Assert.assertTrue(isElementDisplayed(
-				By.xpath("//li[@class = 'lowercase-char completed' and text() = 'One lowercase character']")));
+		Assert.assertTrue(isElementDisplayed(By.xpath("//li[@class = 'lowercase-char completed' and text() = 'One lowercase character']")));
 
 		// number
 		driver.findElement(By.id("new_password")).clear();
