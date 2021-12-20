@@ -257,12 +257,49 @@ public class Topic_15_16_Custom_DropdownList_Part_I_II {
 					break;		
 					
 					//Co the them code xet da du so items can chon hay chua
-					
+//					List<WebElement> itemSelected = driver.findElements(By.xpath("//li[@class='selected']//input"));
+//					System.out.println("Item selected = " + itemSelected.size());
+//					if (expectedValueItem.length == itemSelected.size()) {
+//						break;
+//					}					
 				}
 		
 			}	
 		}
 		
+	}
+	
+	//Use scroll to target
+	public void selectMultiItemInDropdown(String parentXpath, String childXpath, String[] expectedValueItem) {
+		// 1: click vào cái dropdown cho nó xổ hết tất cả các giá trị ra
+		driver.findElement(By.xpath(parentXpath)).click();
+
+		// 2: chờ cho tất cả các giá trị trong dropdown được load ra thành công
+		explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(childXpath)));
+
+		List<WebElement> allItems = driver.findElements(By.xpath(childXpath));
+
+		// Duyệt qa hết tất cả các phần tử cho đến khi thỏa mãn điều kiện
+		for (WebElement childElement : allItems) {
+			// "January", "April", "July"
+			for (String item : expectedValueItem) {
+				if (childElement.getText().equals(item)) {
+					// 3: scroll đến item cần chọn (nếu như item cần chọn có thể nhìn thấy thì ko cần scroll)
+					jsExecutor.executeScript("arguments[0].scrollIntoView(true);", childElement);
+					waitForSeconds(1);
+
+					// 4: click vào item cần chọn
+					childElement.click();
+					waitForSeconds(1);
+					
+					List<WebElement> itemSelected = driver.findElements(By.xpath("//li[@class='selected']//input"));
+					System.out.println("Item selected = " + itemSelected.size());
+					if (expectedValueItem.length == itemSelected.size()) {
+						break;
+					}
+				}
+			}
+		}
 	}
 	
 	
