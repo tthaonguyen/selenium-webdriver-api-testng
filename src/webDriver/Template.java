@@ -22,7 +22,7 @@ public class Template {
 		driver = new FirefoxDriver();
 		//System.setProperty("webdriver.chrome.driver", rootFolder + "\\browserDriver\\chromedriver.exe");
 		//driver = new ChromeDriver();
-		driver = new FirefoxDriver();
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
@@ -32,6 +32,16 @@ public class Template {
 	public void TC_01() {
 		
 	}
+	
+	public void sleepInSeconds(long seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	 
 	@AfterClass
 	public void afterClass() {

@@ -38,7 +38,7 @@ public class Topic_14_Handle_Default_DropdownList {
 		System.setProperty("webdriver.chrome.driver", projectLocation + "\\browserDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		firstName = "Julian";
 		lastName = "Victory";
@@ -56,7 +56,7 @@ public class Topic_14_Handle_Default_DropdownList {
 		return "nguyentong" + rng.nextInt(99999) + "@domain.com";
 	}
 
-	@Test
+	//@Test
 	public void TC01_Handle_HTML_DropdownList() throws InterruptedException {
 		driver.get("https://www.rode.com/wheretobuy");
 
@@ -87,7 +87,7 @@ public class Topic_14_Handle_Default_DropdownList {
 		}
 	}
 
-	@Test
+	//@Test
 	public void TC02_Signin() throws InterruptedException  {
 		driver.get("https://demo.nopcommerce.com/");
 		driver.findElement(By.className("ico-register")).click();
@@ -141,6 +141,46 @@ public class Topic_14_Handle_Default_DropdownList {
 		
 	}
 
+	@Test
+	public void TC03_Multiple_dropdown() throws InterruptedException  {
+		driver.get("https://automationfc.github.io/basic-form/index.html");
+		
+		List<String> itemText = new ArrayList<String>();
+		itemText.add("Manual");
+		itemText.add("Mobile");
+		itemText.add("Security");
+		itemText.add("Functional UI");
+		
+		select = new Select(driver.findElement(By.id("job2")));
+		
+		select.selectByVisibleText("Manual");
+		Thread.sleep(1000);
+		select.selectByVisibleText("Mobile");
+		Thread.sleep(1000);
+		select.selectByVisibleText("Security");
+		Thread.sleep(1000);
+		select.selectByVisibleText("Functional UI");
+		Thread.sleep(1000);
+		
+		List<WebElement> itemSelected = select.getAllSelectedOptions();
+		
+		List<String> itemSelectedText = new ArrayList<String>();
+		
+		//verify 4 items selected
+		Assert.assertEquals(itemSelected.size(), itemText.size());
+		
+		for (WebElement item : itemSelected) {
+			itemSelectedText.add(item.getText());
+		}
+		
+		Assert.assertTrue(itemSelectedText.contains("Manual"));
+		Assert.assertTrue(itemSelectedText.contains("Mobile"));
+		Assert.assertTrue(itemSelectedText.contains("Security"));
+		Assert.assertTrue(itemSelectedText.contains("Functional UI"));
+		
+		Assert.assertEquals(itemText, itemSelectedText);
+		
+	}
 
 
 	
