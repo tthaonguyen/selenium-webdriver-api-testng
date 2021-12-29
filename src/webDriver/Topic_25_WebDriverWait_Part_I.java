@@ -26,87 +26,54 @@ public class Topic_25_WebDriverWait_Part_I {
 		System.setProperty("webdriver.gecko.driver", rootFolder + "\\browserDriver\\geckodriver.exe");
 		driver = new FirefoxDriver();
 
-		explicitWait = new WebDriverWait(driver,10);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		explicitWait = new WebDriverWait(driver,10);		
 		driver.manage().window().maximize();
 
-		driver.get("http://live.techpanda.org/index.php/customer/account/login/");
+
 	}
 
-	@Test
-	public void TC_01_Element_Visible_Or_Displayed() {
-		//Visible/Displayed condition:
-			//Element is display on UI (*)
-			//Element is in DOM (*)
+	//@Test
+	public void TC_02_Implicit_Wait_Less_Than() {
+		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
-		//wait for my account in footer is displayed
-		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='footer']//a[@title='My Account']")));		
-		//verify my account is displayed
-		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).isDisplayed());
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.findElement(By.cssSelector("div#start>button")).click();
 		
-		//click on login button
-		driver.findElement(By.xpath("//button[@title='Login']")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Hello World!']")).isDisplayed());
+	}
+	
+	//@Test
+	public void TC_02_Implicit_Wait_Greater_Than_Or_Equal() {
+		//loading 5 seconds
+		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
-		//wait for error message is displayed
-		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='advice-required-entry-email']")));
-		//verify error message is displayed
-		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='advice-required-entry-email']")).isDisplayed());	
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.findElement(By.cssSelector("div#start>button")).click();
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Hello World!']")).isDisplayed());
+		
 	}
 	
 	@Test
-	public void TC_02_Invisible_Undisplayed_In_DOM() {
-		//Visible/Displayed condition:
-			//Element is not display on UI (*)
-			//Element is in DOM
+	public void TC_03_Static_Wait_Less_Than() {
+		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
-		driver.navigate().refresh();
-		//wait for my account in header is not displayed
-		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='header-account']//a[@title='My Account']")));
+		driver.findElement(By.cssSelector("div#start>button")).click();
+		sleepInSeconds(3);
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Hello World!']")).isDisplayed());
+		
 	}
 	
 	@Test
-	public void TC_02_Invisible_Undisplayed_Not_In_DOM() {
-		//Visible/Displayed condition:
-			//Element is not display on UI (*)
-			//Element is not in DOM
+	public void TC_03_Static_Wait_Greater_Than_Or_Equal() {
+		//loading 5 seconds
+		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
-		driver.navigate().refresh();
-		//wait for error message is not displayed
-		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='advice-required-entry-email']")));
-	}
-	
-	@Test
-	public void TC_04_Element_Presence() {
-		//Visible/Displayed condition:
-			//Element is not display on UI (*)
-			//Element is in DOM
+		driver.findElement(By.cssSelector("div#start>button")).click();
+		sleepInSeconds(5);
 		
-		driver.navigate().refresh();
-		
-		//wait for my account in footer is displayed (be in UI)
-		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='footer']//a[@title='My Account']")));
-		
-		//wait for my account in header is not displayed (not be in UI)
-		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='header-account']//a[@title='My Account']")));
-			
-	}
-	
-	@Test
-	public void TC_05_Element_Staleness() {
-		//Visible/Displayed condition:
-			//Element is not display on UI (*)
-			//Element is not in DOM (*)
-		
-		driver.navigate().refresh();
-		
-		//click on login button
-		driver.findElement(By.xpath("//button[@title='Login']")).click();
-		
-		WebElement element = driver.findElement(By.xpath("//div[@id='advice-required-entry-email']"));
-		
-		driver.navigate().refresh();
-		
-		explicitWait.until(ExpectedConditions.stalenessOf(element));
+		Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Hello World!']")).isDisplayed());
 		
 	}
 
