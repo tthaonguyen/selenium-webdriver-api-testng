@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="false" name="Project Name">
+	<test name="Run on Chrome">
+		<groups>
+			<run>
+				<!-- <include name = "user"></include> -->
+				<!-- <exclude name = "product"></exclude> -->
+			</run>
+		</groups>
+
+		<classes>
+			<class name="testng.TestNG_05_Data_Provider" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

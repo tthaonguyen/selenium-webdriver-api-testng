@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="false" name="Project Name">
+
+	<test name="Run on Chrome">
+	<parameter name = "browser" value = "chrome"></parameter>
+	<parameter name = "email" value = "email@domain.com"></parameter>
+	<parameter name = "password" value = "123456"></parameter>
+		<classes>
+			<class name="testng.TestNG_06_Parameter_MultipleBrowser" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Run on Firefox">
+	<parameter name = "browser" value = "firefox"></parameter>
+	<parameter name = "email" value = "email@domain.com"></parameter>
+	<parameter name = "password" value = "123456"></parameter>
+		<classes>
+			<class name="testng.TestNG_06_Parameter_MultipleBrowser" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Run on Edge">
+	<parameter name = "browser" value = "edge"></parameter>
+	<parameter name = "email" value = "email@domain.com"></parameter>
+	<parameter name = "password" value = "123456"></parameter>
+		<classes>
+			<class name="testng.TestNG_06_Parameter_MultipleBrowser" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

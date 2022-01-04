@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="false" name="Project Name">
+	<test name="Run on Chrome">
+		<groups>
+			<run>
+				<!-- <include name = "user"></include> -->
+				<!-- <exclude name = "product"></exclude> -->
+			</run>
+		</groups>
+
+<!-- 		<packages> -->
+<!-- 			<package name="testng"></package> -->
+<!-- 		</packages> -->
+
+		<classes>
+			<!-- <class name="testng.TestNG_01_Annotations"/> -->
+			<!-- <class name="testng.TestNG_02_Assertion"/> -->
+			<!-- <class name="testng.TestNG_03_Group"/> -->
+			<class name="testng.TestNG_05_Data_Provider" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

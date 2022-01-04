@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite parallel="tests" thread-count="3" name="Project Name">
+
+	<test name="Run on Chrome">
+	<parameter name = "browser" value = "chrome"></parameter>
+	<parameter name = "email" value = "email@domain.com"></parameter>
+	<parameter name = "password" value = "123456"></parameter>
+		<classes>
+			<class name="testng.TestNG_07_Parallel" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Run on Firefox">
+	<parameter name = "browser" value = "firefox"></parameter>
+	<parameter name = "email" value = "email@domain.com"></parameter>
+	<parameter name = "password" value = "123456"></parameter>
+		<classes>
+			<class name="testng.TestNG_07_Parallel" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->
